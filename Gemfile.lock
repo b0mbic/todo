@@ -84,7 +84,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    duktape (2.3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.12.1-x64-mingw32)
@@ -226,7 +225,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
   devise
-  duktape
   jbuilder (~> 2.5)
   jquery-rails
   popper_js
