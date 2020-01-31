@@ -10,7 +10,14 @@
   </head>
 
   <body>
+
+  <% if current_user %>
+    <%= render 'layouts/loggedin' %>
+  <% else %>
     <%= render 'layouts/loggedout' %>
+  <% end %>
+
+
     <%= render 'layouts/alerts' %>
     <%= yield %>
   </body>
