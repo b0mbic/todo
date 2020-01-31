@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
+<h1>Vítejte v aplikaci TODO List</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<% if current_user %>
+  <%= render 'layouts/loggedin' %>
+<% else %>
+  <p>Pro použití aplikace je nutné být přihlášený</p>
+<% end %>

@@ -18,6 +18,7 @@ class TasksTest < ApplicationSystemTestCase
     check "Is done" if @task.is_done
     fill_in "Note", with: @task.note
     fill_in "Title", with: @task.title
+    fill_in "User", with: @task.user_id
     click_on "Create Task"
 
     assert_text "Task was successfully created"
@@ -32,6 +33,7 @@ class TasksTest < ApplicationSystemTestCase
     check "Is done" if @task.is_done
     fill_in "Note", with: @task.note
     fill_in "Title", with: @task.title
+    fill_in "User", with: @task.user_id
     click_on "Update Task"
 
     assert_text "Task was successfully updated"
