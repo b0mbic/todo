@@ -5,6 +5,7 @@ ruby '2.6.5'
 
 gem 'devise'
 gem 'bootstrap'
+gem 'devise-bootstrap-views'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'popper_js'
