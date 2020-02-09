@@ -1,7 +1,23 @@
 <header>
-<% if current_user %>
-  <%= render 'layouts/loggedin' %>
-<% else %>
-  <%= render 'layouts/loggedout' %>
-<% end %>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%= link_to "TODO List", root_path, :class => "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, :class => "nav-link" %>
+        </li>
+
+        <% if current_user %>
+          <%= render 'layouts/loggedin' %>
+        <% else %>
+          <%= render 'layouts/loggedout' %>
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
 </header>
