@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :tags
+  namespace :settings do
+    resources :tags
+    resources :categories
+  end
 
   resources :tag_associations
-  resources :categories
+
   resources :tasks
   root to: 'pages#home'
   devise_for :users
