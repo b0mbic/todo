@@ -21,11 +21,9 @@ class Settings::CategoriesController < ApplicationController
   def edit
   end
 
-  # POST /categories
-  # POST /categories.json
+
   def create
     @category = current_user.categories.new(category_params)
-
       if @category.save
         redirect_to [:settings, @category], notice: 'Category was successfully created.'
       else
@@ -33,8 +31,6 @@ class Settings::CategoriesController < ApplicationController
       end
     end
 
-  # PATCH/PUT /categories/1
-  # PATCH/PUT /categories/1.json
   def update
       if @category.update(category_params)
         redirect_to [:settings, @category], notice: 'Category was successfully updated.'
@@ -43,12 +39,10 @@ class Settings::CategoriesController < ApplicationController
       end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
+
   def destroy
     @category.destroy
-      redirect_to settings_categories_url, notice: 'Category was successfully destroyed.'
-
+      redirect_to settings_categories_path, notice: 'Category was successfully destroyed.'
   end
 
   private
