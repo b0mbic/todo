@@ -7,10 +7,9 @@ class User < ApplicationRecord
   has_many :categories
   has_many :tags
 
-  validates_presence_of :username, :email
 
-  validates :email, uniqueness: true
-  validates :username, uniqueness: true
 
-  attr_accessor :login
+  validates :email, presence: :true, uniqueness: { case_sensitive: false }
+  validates :username, presence: :true, uniqueness: { case_sensitive: false }
+
 end

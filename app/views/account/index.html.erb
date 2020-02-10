@@ -1,7 +1,10 @@
 <h1>My account</h1>
 
+<h3>You are logged in as user <%= current_user.username %> with email <%= current_user.email %> </h3>
+
+
 <div class="btn-group-vertical">
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-primary btn-lg" %>
   <%= link_to "Edit Account", "#", :class => "btn btn-primary btn-lg" %>
-  <%= link_to "Delete Account", "#", :class => "btn btn-primary btn-lg" %>
+  <%= link_to "Delete My Account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-primary btn-lg" %>
 </div>
