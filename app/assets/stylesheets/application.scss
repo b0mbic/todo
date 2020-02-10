@@ -18,6 +18,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+.btn-group-vertical > a{
+  margin-bottom:10px;
+  border-radius:10px !important;
+}
+
 .alert-alert {
   @extend .alert-danger;
 }
@@ -394,6 +399,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 {
   font-size: 2.1875rem;
+  margin-bottom: 0.8rem;
 }
 
 h2, .h2 {

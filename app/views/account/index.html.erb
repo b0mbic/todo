@@ -1,20 +1,7 @@
 <h1>My account</h1>
-<p>
-  <button type="button" class="btn btn-primary btn-lg">Categories</button>
-</p>
-<p>
-  <button type="button" class="btn btn-primary btn-lg">Tags</button>
-</p>
-<p>
-  <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-</p>
 
-
-
-
-<div class="list-group">
-  <%= link_to "Categories", settings_categories_path, :class => "list-group-item" %>
-  <a href="#" class="list-group-item">First item</a>
-  <a href="#" class="list-group-item">Second item</a>
-  <a href="#" class="list-group-item">Third item</a>
+<div class="btn-group-vertical">
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-primary btn-lg" %>
+  <%= link_to "Edit Account", "#", :class => "btn btn-primary btn-lg" %>
+  <%= link_to "Delete Account", "#", :class => "btn btn-primary btn-lg" %>
 </div>
