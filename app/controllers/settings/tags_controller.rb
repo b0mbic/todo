@@ -1,5 +1,5 @@
 class Settings::TagsController < ApplicationController
-  before_action :authenticate_user!,:set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags
   # GET /tags.json
@@ -27,40 +27,28 @@ class Settings::TagsController < ApplicationController
     @tag = Tag.new(tag_params)
     @tag.user = current_user
 
-
-    respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render :show, status: :created, location: @tag }
+        redirect_to [:settings, @tag], notice: 'Tag was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /tags/1
   # PATCH/PUT /tags/1.json
   def update
-    respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tag }
+        redirect_to [:settings, @tag], notice: 'Tag was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
+         render :edit
       end
-    end
   end
 
   # DELETE /tags/1
   # DELETE /tags/1.json
   def destroy
     @tag.destroy
-    respond_to do |format|
-      format.html { redirect_to setting_tag_url, notice: 'Tag was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to settings_tags_path, notice: 'Tag was successfully destroyed.'
   end
 
   private

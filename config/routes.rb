@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  get 'settings', action: 'index', controller: 'settings'
+
   resources :tag_associations
 
   resources :tasks
