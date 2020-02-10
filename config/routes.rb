@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   get 'settings', action: 'index', controller: 'settings'
+  get 'account', action: 'index', controller: 'account'
 
   resources :tag_associations
 

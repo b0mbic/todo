@@ -4,7 +4,7 @@ class Settings::CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = current_user.categories.all
   end
 
   # GET /categories/1
@@ -14,7 +14,7 @@ class Settings::CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = current_user.categories.new
   end
 
   # GET /categories/1/edit
@@ -24,8 +24,7 @@ class Settings::CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
-    @category.user = current_user
+    @category = current_user.categories.new(category_params)
 
       if @category.save
         redirect_to [:settings, @category], notice: 'Category was successfully created.'
