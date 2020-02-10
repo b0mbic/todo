@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :tags
 
   validates_presence_of :username, :email
+
+  validates :email, uniqueness: true
+  validates :username, uniqueness: true
 end
