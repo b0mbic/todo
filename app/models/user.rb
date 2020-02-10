@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :categories
   has_many :tags
+
+  validates_presence_of :username, :email
 end

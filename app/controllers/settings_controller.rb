@@ -1,5 +1,6 @@
 class SettingsController < ApplicationController
-  def index
 
+  def index
+    add_breadcrumb "Settings", :settings_path
   end
 end

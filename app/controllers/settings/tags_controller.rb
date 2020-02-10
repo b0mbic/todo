@@ -1,30 +1,36 @@
 class Settings::TagsController < ApplicationController
   before_action :authenticate_user!, :set_tag, only: [:show, :edit, :update, :destroy]
 
+  add_breadcrumb "Settings", :settings_path
+  add_breadcrumb "Tags", :settings_tags_path
+
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = current_user.tags.all
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
+    add_breadcrumb "Tag: " + @tag.title
   end
 
   # GET /tags/new
   def new
-    @tag = Tag.new
+    @tag = current_user.tag.new
+    add_breadcrumb "New Tag"
   end
 
   # GET /tags/1/edit
   def edit
+    add_breadcrumb  "Editing Tag: " + @tag.title
   end
 
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(tag_params)
+    @tag = current_user.tags.new(tag_params)
     @tag.user = current_user
 
       if @tag.save
@@ -54,11 +60,11 @@ class Settings::TagsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
-      @tag = Tag.find(params[:id])
+      @tag = current_user.tags.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:title, :color, :user_id)
+      params.require(:tag).permit(:title, :color)
     end
 end
