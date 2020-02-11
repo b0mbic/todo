@@ -18,7 +18,7 @@ class Settings::TagsController < ApplicationController
 
   # GET /tags/new
   def new
-    @tag = current_user.tag.new
+    @tag = current_user.tags.new
     add_breadcrumb "New Tag"
   end
 
@@ -31,7 +31,6 @@ class Settings::TagsController < ApplicationController
   # POST /tags.json
   def create
     @tag = current_user.tags.new(tag_params)
-    @tag.user = current_user
 
       if @tag.save
         redirect_to [:settings, @tag], notice: 'Tag was successfully created.'

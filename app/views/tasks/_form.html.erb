@@ -8,6 +8,7 @@
     <%= f.input :title %>
     <%= f.input :note %>
     <%= f.association :category, required: false, collection: current_user.categories, class: "form-control" %>
+    <%= f.association :tags, as: :check_boxes, required: false, collection: current_user.tags, class: "form-control" %>
   </div>
 
   <div class="form-actions">
