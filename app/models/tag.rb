@@ -4,4 +4,6 @@ class Tag < ApplicationRecord
   has_many :tasks, through: :tag_associations
 
   validates_presence_of :title, :color, :user
+
+  self.per_page = 7
 end

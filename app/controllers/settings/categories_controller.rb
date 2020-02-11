@@ -8,7 +8,7 @@ class Settings::CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = current_user.categories.paginate(page: params[:page])
+    @categories = current_user.categories.order('title ASC').paginate(page: params[:page])
 
   end
 

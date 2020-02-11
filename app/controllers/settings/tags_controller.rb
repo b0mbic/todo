@@ -7,7 +7,7 @@ class Settings::TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = current_user.tags.all
+    @tags = current_user.tags.order('title ASC').paginate(page: params[:page])
   end
 
   # GET /tags/1
