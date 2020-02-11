@@ -1,7 +1,7 @@
 <h1>Tags</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Title</th>
       <th>Color</th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= tag.title %></td>
         <td><%= tag.color %></td>
-        <td><%= link_to 'Show', settings_tag_path(tag) %></td>
-        <td><%= link_to 'Edit', edit_settings_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', settings_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', settings_tag_path(tag), :class => "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_settings_tag_path(tag), :class => "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', settings_tag_path(tag), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-sm" %></td>
 
       </tr>
     <% end %>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Tag', new_settings_tag_path %>
+<%= link_to 'New Tag', new_settings_tag_path, :class => "btn btn-primary btn-lg" %>

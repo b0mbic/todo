@@ -8,14 +8,14 @@ class Settings::CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = current_user.categories.all
+    @categories = current_user.categories.paginate(page: params[:page])
 
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @tasks_by_category = current_user.tasks.by_category(@category.id)
+    @tasks_by_category = current_user.tasks.by_category(@category.id).paginate(page: params[:page])
     add_breadcrumb "Category: " + @category.title
   end
 

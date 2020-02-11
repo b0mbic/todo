@@ -1,7 +1,7 @@
 <h1>Categories</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Title</th>
       <th>Color</th>
@@ -14,14 +14,18 @@
       <tr>
         <td><%= category.title %></td>
         <td><%= category.color %></td>
-        <td><%= link_to 'Show', settings_category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_settings_category_path(category) %></td>
-        <td><%= link_to 'Destroy', settings_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detail', settings_category_path(category), :class => "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_settings_category_path(category), :class => "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', settings_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Category', new_settings_category_path %>
+<p>
+<%= link_to 'New Category', new_settings_category_path, :class => "btn btn-primary btn-lg" %>
+</p>
+<p>
+  <%= will_paginate @categories, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</p>
