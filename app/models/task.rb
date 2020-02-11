@@ -5,4 +5,6 @@ class Task < ApplicationRecord
   has_many :tags, through: :tag_associations
 
   validates_presence_of :title, :user
+
+  scope :by_category, -> (cat_id) { where category_id: (cat_id)}
 end

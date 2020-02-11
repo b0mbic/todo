@@ -15,6 +15,7 @@ class Settings::CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @tasks_by_category = current_user.tasks.by_category(@category.id)
     add_breadcrumb "Category: " + @category.title
   end
 

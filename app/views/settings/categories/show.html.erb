@@ -8,7 +8,44 @@
   <%= @category.color %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_settings_category_path(@category) %> |
+<%= link_to 'Edit Category', edit_settings_category_path(@category) %> |
 <%= link_to 'Back', settings_categories_path %>
+
+
+
+<% if @tasks_by_category.empty? %>
+  <p>
+    <strong>You have no tasks with this category</strong>
+  </p>
+
+<% else %>
+
+  <p>
+    <strong>Tasks with this category</strong>
+  </p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Is Done?</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+<tbody>
+  <% @tasks_by_category.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.is_done %></td>
+      <td><%= link_to 'Show', task %></td>
+      <td><%= link_to 'Edit', edit_task_path(task) %></td>
+      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<% end %>
+
+

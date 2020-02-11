@@ -11,6 +11,7 @@ gem 'simple_form'
 gem 'popper_js'
 gem 'tether-rails'
 
+gem 'will_paginate'
 gem "breadcrumbs_on_rails"
 
 

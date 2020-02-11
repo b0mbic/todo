@@ -63,8 +63,8 @@ class TasksController < ApplicationController
       @task = current_user.tasks.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through.;
     def task_params
-      params.require(:task).permit(:deadline_at, :title, :note, :is_done)
+      params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, { tag_ids: [] })
     end
 end
