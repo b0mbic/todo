@@ -1,11 +1,10 @@
 <h1>Tasks</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Deadline at</th>
       <th>Title</th>
-      <th>Note</th>
       <th>Is done</th>
       <th colspan="3"></th>
     </tr>
@@ -16,9 +15,8 @@
       <tr>
         <td><%= task.deadline_at %></td>
         <td><%= task.title %></td>
-        <td><%= task.note %></td>
         <td><%= task.is_done %></td>
-        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Detail', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,6 +24,10 @@
   </tbody>
 </table>
 
-<br>
+<p>
+<%= link_to 'Create New Task', new_task_path, :class => "btn btn-primary btn-lg" %>
+</p>
 
-<%= link_to 'New Task', new_task_path %>
+<p>
+<%= will_paginate @tasks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</p>

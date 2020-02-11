@@ -12,6 +12,7 @@ gem 'popper_js'
 gem 'tether-rails'
 
 gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 gem "breadcrumbs_on_rails"
 
 

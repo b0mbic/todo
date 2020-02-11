@@ -7,4 +7,6 @@ class Task < ApplicationRecord
   validates_presence_of :title, :user
 
   scope :by_category, -> (cat_id) { where category_id: (cat_id)}
+
+  self.per_page = 3
 end
