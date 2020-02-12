@@ -27,6 +27,12 @@ class TasksController < ApplicationController
     add_breadcrumb  "Editing Task: " + @task.title
   end
 
+  def completed
+    @tasks = current_user.tasks.where(is_done: true).paginate(page: params[:page])
+    add_breadcrumb  "Completed Tasks "
+  end
+
+
   # POST /tasks
   # POST /tasks.json
   def create

@@ -27,6 +27,7 @@
   <table class="table">
     <thead class="thead-dark">
     <tr>
+      <th>Deadline at</th>
       <th>Title</th>
       <th>Is Done?</th>
       <th colspan="3"></th>
@@ -36,6 +37,7 @@
     <tbody>
     <% @tasks_by_tag.each do |task| %>
       <tr>
+        <td><%= task.deadline_at %></td>
         <td><%= task.title %></td>
         <td><%= task.is_done %></td>
         <td><%= link_to 'Detail', task, :class => "btn btn-secondary btn-sm" %></td>

@@ -8,6 +8,17 @@ Rails.application.routes.draw do
   get 'settings', action: 'index', controller: 'settings'
   get 'account', action: 'index', controller: 'account'
 
+
+
+
+  resources :tasks do
+    collection do
+      get 'completed'
+    end
+  end
+
+
+
   resources :tag_associations
 
   resources :tasks

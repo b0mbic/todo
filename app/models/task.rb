@@ -9,6 +9,7 @@ class Task < ApplicationRecord
   validates :title, :uniqueness => {:scope=>:user_id}
 
   scope :by_category, -> (cat_id) { where category_id: (cat_id)}
+  scope :completed, ->  { where is_done: :true}
 
-  self.per_page = 30
+  #self.per_page = 30
 end
