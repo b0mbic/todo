@@ -5,5 +5,5 @@ class Tag < ApplicationRecord
 
   validates_presence_of :title, :color, :user
 
-  self.per_page = 7
+  self.per_page = 30
 end

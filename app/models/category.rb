@@ -4,5 +4,5 @@ class Category < ApplicationRecord
 
   validates_presence_of :title, :color, :user
 
-  self.per_page = 5
+  self.per_page = 30
 end

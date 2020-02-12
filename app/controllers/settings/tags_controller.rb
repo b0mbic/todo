@@ -13,6 +13,7 @@ class Settings::TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @tasks_by_tag = @tag.tasks.paginate(page: params[:page])
     add_breadcrumb "Tag: " + @tag.title
   end
 
