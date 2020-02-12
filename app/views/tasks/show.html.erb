@@ -19,9 +19,16 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @task.user %>
+  <strong>Category:</strong>
+  <%= @task.category.title %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<p>
+<strong>Tag:</strong>
+<% @task.tags.each do |tag| %>
+  <%= tag.title + "  ||  " %>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) , :class => "btn btn-primary" %>
+<%= link_to 'Back', tasks_path  , :class => "btn btn-primary"%>

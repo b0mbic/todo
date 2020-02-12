@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       get 'completed'
+      get 'pending'
     end
   end
 
