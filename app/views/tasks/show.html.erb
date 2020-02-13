@@ -18,10 +18,12 @@
   <%= @task.is_done %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @task.category.title %>
-</p>
+<% unless @task.category.nil? %>
+  <p>
+    <strong>Category:</strong>
+    <%=  @task.category.title  %>
+  </p>
+<% end %>
 
 <p>
 <strong>Tag:</strong>

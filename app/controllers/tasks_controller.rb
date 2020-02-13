@@ -49,6 +49,14 @@ class TasksController < ApplicationController
 
   end
 
+  def delete
+    Task.destroy(params[:task_ids])
+    respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.json { head :no_content }
+    end
+  end
+
 
   # POST /tasks
   # POST /tasks.json

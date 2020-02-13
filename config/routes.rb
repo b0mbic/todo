@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'completed'
       get 'pending'
+      delete 'delete'
     end
   end
 

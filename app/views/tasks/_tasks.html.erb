@@ -1,4 +1,4 @@
-
+<%= form_tag delete_tasks_path, method: :delete do %>
 
 <table class="table">
   <thead class="thead-dark">
@@ -6,6 +6,7 @@
     <th>Deadline at</th>
     <th>Title</th>
     <th>Is done</th>
+    <th>select</th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -16,13 +17,19 @@
       <td><%= task.deadline_at %></td>
       <td><%= task.title %></td>
       <td><%= task.is_done %></td>
+      <td class="table-icon">
+        <%= check_box_tag "task_ids[]", task.id %>
+      </td>
       <td><%= link_to 'Detail', task, :class => "btn btn-secondary btn-sm" %></td>
       <td><%= link_to 'Edit', edit_task_path(task), :class => "btn btn-secondary btn-sm" %></td>
       <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-secondary btn-sm" %></td>
+
     </tr>
   <% end %>
   </tbody>
 </table>
+
+  <%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
 
 <p>
   <%= link_to 'Create New Task', new_task_path, :class => "btn btn-primary btn-lg" %>
@@ -31,3 +38,5 @@
 <p>
   <%= will_paginate @tasks, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </p>
+
+<% end %>
