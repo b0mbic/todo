@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_user.tasks.paginate(page: params[:page])
+    @tasks = current_user.tasks.search(params[:search]).paginate(page: params[:page])
   end
 
   # GET /tasks/1
@@ -96,6 +96,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.;
     def task_params
-      params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, { tag_ids: [] })
+      params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, :search, { tag_ids: [] })
     end
 end

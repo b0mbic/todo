@@ -1,4 +1,13 @@
-<%= form_tag delete_tasks_path, method: :delete do %>
+
+
+  <p>
+  <%= form_tag tasks_path, method: :get do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag 'Search in all tasks', :class => 'btn btn-secondary btn-xs' %>
+  <% end %>
+  </p>
+
+  <%= form_tag delete_tasks_path, method: :delete do %>
 
 <table class="table">
   <thead class="thead-dark">
@@ -28,6 +37,8 @@
   <% end %>
   </tbody>
 </table>
+
+
 
   <%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %>
 
