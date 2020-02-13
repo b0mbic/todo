@@ -1,5 +1,7 @@
-<h1>Welcome to TODO List application</h1>
+<h1>TODO List application </h1>
 <%if !current_user %>
 <p>To use this application you have to be logged in</p>
+<% else %>
+  <h2>Welcome, <%= current_user.username %>  </h2>
 <% end %>
 
