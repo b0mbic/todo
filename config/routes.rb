@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'completed'
       get 'pending'
+      get 'by-category/:category_id/(by-tags/*tags)', to: 'tasks#filtered'
       delete 'delete'
     end
   end
