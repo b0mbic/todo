@@ -14,7 +14,7 @@ class Task < ApplicationRecord
 
   scope :completed, ->  { where is_done: :true}
 
-  #self.per_page = 30
+  self.per_page = 30
 
   def self.search(pattern)
     if pattern.blank?

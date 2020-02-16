@@ -14,6 +14,7 @@ gem 'tether-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 gem "breadcrumbs_on_rails"
+gem 'faker'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

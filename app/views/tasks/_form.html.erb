@@ -4,7 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :deadline_at %>
+    <%= f.input :deadline_at, include_blank: :true, selected: DateTime.now.beginning_of_day + 1.week + 17.hours %>
     <%= f.input :title %>
     <%= f.input :note %>
     <%= f.input :is_done %>
