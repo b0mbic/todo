@@ -2,4 +2,13 @@
 
 <h1>All Tasks</h1>
 
+
+
+<p>
+  <%= form_tag tasks_path, method: :get do %>
+    <%= text_field_tag(:filter, params[:filter]) %>
+    <%= submit_tag 'Search in all tasks', :class => 'btn btn-secondary btn-xs' %>
+  <% end %>
+</p>
+
 <%= render 'tasks', tasks: @tasks %>

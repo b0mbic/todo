@@ -24,6 +24,22 @@ class Task < ApplicationRecord
     end
   end
 
+  def self.filter_category(pattern)
+    if pattern.blank?
+      all
+    else
+      by_category(pattern)
+    end
+  end
+
+  def self.filter_tags(pattern)
+    if pattern.length <= 1
+      all
+    else
+      by_tags(pattern)
+    end
+  end
+
 
 
 

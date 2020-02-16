@@ -1,0 +1,9 @@
+<h1>Filter Tasks</h1>
+
+<%= simple_form_for :filter, { url: filtered_tasks_path, method: :get } do |f| %>
+  <%= f.input :category, required: false, collection: current_user.categories, class: "form-control" %>
+  <%= f.input :tags, as: :check_boxes, required: false, collection: current_user.tags, class: "form-control" %>
+  <%= f.button :submit, "Filter" %>
+<% end %>
+
+

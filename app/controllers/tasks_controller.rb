@@ -37,17 +37,31 @@ class TasksController < ApplicationController
     add_breadcrumb  "Completed Tasks "
   end
 
-  def search
+  def filter
+    add_breadcrumb "Filter tasks "
+  end
+
+  def filter_by_tags
+    add_breadcrumb "Filter tasks", :filter_tasks_path
+    add_breadcrumb "Filtered tasks: "
+    @tasks = current_user.tasks.filter_tags(params[:filter][:tags]).distinct.paginate(page: params[:page])
+  end
+
+  def filter_by_categories
+    add_breadcrumb "Filter tasks", :filter_tasks_path
+    add_breadcrumb "Filtered tasks: "
+    @tasks = current_user.tasks.filter_category(params[:filter][:category]).paginate(page: params[:page])
+  end
+
+
+  def filtered
+    add_breadcrumb "Filter tasks", :filter_tasks_path
+    add_breadcrumb "Filtered tasks: "
+    @tasks = current_user.tasks.filter_category(params[:filter][:category]).filter_tags(params[:filter][:tags]).distinct.paginate(page: params[:page])
 
   end
 
-  def by_category
 
-  end
-
-  def by_tags
-
-  end
 
   def delete
     Task.destroy(params[:task_ids])
@@ -96,6 +110,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.;
     def task_params
-      params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, :search, { tag_ids: [] })
+      params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, :filter, {tag_ids: [] })
     end
 end
