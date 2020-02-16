@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Color</th>
       <th>Color Hex</th>
+      <th>Number of Tasks</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= category.title %></td>
         <td bgcolor="<%= category.color %>"></td>
         <td><%= category.color %></td>
+        <td><%= category.tasks.size %></td>
 
         <td><%= link_to 'Detail', settings_category_path(category), :class => "btn btn-secondary btn-sm" %></td>
         <td><%= link_to 'Edit', edit_settings_category_path(category), :class => "btn btn-secondary btn-sm" %></td>
